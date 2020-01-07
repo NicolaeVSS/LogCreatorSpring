@@ -2,6 +2,8 @@ package com.ss.logcreator.controller;
 
 import java.time.Instant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/*")
 public class LogCreatorController {
 	
+	Logger logger = LoggerFactory.getLogger(LogCreatorController.class);
+	
 	@GetMapping(path = "")
 	public HttpStatus isUp() 
 	{
-		System.out.println(Instant.now() + " " + HttpStatus.OK);
+		logger.info(Instant.now() + " " + HttpStatus.OK);
 		return HttpStatus.OK;
 	}
 }
