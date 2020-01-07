@@ -18,7 +18,7 @@ public class LogCreatorController {
 	@GetMapping(path = "")
 	public HttpStatus isUp() 
 	{
-		logger.info(Instant.now() + " " + HttpStatus.OK);
+		logger.info(HttpStatus.OK.toString());
 		return HttpStatus.OK;
 	}
 }
